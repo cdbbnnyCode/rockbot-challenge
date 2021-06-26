@@ -94,8 +94,8 @@ class MainWindow:
                 collide = self.collision.test(ir.collider)
                 if collide is None:
                     break
-                else:
-                    print("collides with %s" % collide)
+                # else:
+                #     print("collides with %s" % collide)
             self.rocks.append(ir)
             self.collision.add_collider(ir.collider)
         self.collision.remove_collider(self.robot.bbox)

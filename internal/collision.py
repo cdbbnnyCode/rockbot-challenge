@@ -64,9 +64,7 @@ class AABB(Collider):
         pygame.draw.rect(surf, (0xff, 0x00, 0x00), rect, 1)
 
 def aabb_from_corners(l, t, r, b):
-    bbox = AABB(r-l, t-b, (r+l)/2, (t+b)/2)
-    print(bbox.l(), l)
-    return bbox
+    return AABB(r-l, t-b, (r+l)/2, (t+b)/2)
 
 class ScreenCollider(Collider):
     def __init__(self, screen_width, screen_height):
