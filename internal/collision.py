@@ -1,6 +1,7 @@
 # brain-dead axis-aligned collision thing
 
 from math import *
+import pygame
 
 class Collider:
     def __init__(self):
@@ -16,6 +17,9 @@ class Collider:
         if no colliders are intersecting.
         """
         return None
+
+    def draw(self, surf, x0, y0):
+        pass
 
 class AABB(Collider):
     def __init__(self, w, h, x=0, y=0):
@@ -33,10 +37,10 @@ class AABB(Collider):
         return self.y - self.height/2
 
     def l(self):
-        return self.x - self.height/2
+        return self.x - self.width/2
 
     def r(self):
-        return self.x + self.height/2
+        return self.x + self.width/2
 
     def w(self):
         return self.width
@@ -54,6 +58,15 @@ class AABB(Collider):
             and self.b() < other.t():
             return self
         return None
+
+    def draw(self, surf, x0, y0):
+        rect = pygame.Rect(x0 + self.l(), y0 - self.t(), self.width, self.height)
+        pygame.draw.rect(surf, (0xff, 0x00, 0x00), rect, 1)
+
+def aabb_from_corners(l, t, r, b):
+    bbox = AABB(r-l, t-b, (r+l)/2, (t+b)/2)
+    print(bbox.l(), l)
+    return bbox
 
 class ScreenCollider(Collider):
     def __init__(self, screen_width, screen_height):
@@ -94,3 +107,7 @@ class CollisionSet(Collider):
             if colliding is not None:
                 return colliding
         return None
+
+    def draw(self, surf, x0, y0):
+        for collider in self.colliders:
+            collider.draw(surf, x0, y0)
