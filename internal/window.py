@@ -148,7 +148,7 @@ def main(robot_fn):
     # win.robot.forward(250)
     while True:
         t = time.perf_counter()
-        win.update()
+        win.update(win.DRAW_DISABLE_BARRIERS)
 
         # if win.robot.curr_move_result is not None:
         #     print(win.robot.curr_move_result)

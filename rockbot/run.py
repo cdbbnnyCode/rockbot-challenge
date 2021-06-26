@@ -1,9 +1,6 @@
 from math import *
+import cv2
 
 def run(robot):
     # your code here
     print("Started!")
-    print(robot.forward(250))
-    print(robot.pick())
-    print(robot.turn(pi/2))
-    print(robot.forward(250))
