@@ -143,6 +143,7 @@ class MainWindow:
 def main(robot_fn):
     win = MainWindow(robot_fn)
     win.start()
+    start_time = time.perf_counter()
 
     frametime = 1 / 60
     # win.robot.forward(250)
@@ -150,10 +151,11 @@ def main(robot_fn):
         t = time.perf_counter()
         win.update(win.DRAW_DISABLE_BARRIERS)
 
-        # if win.robot.curr_move_result is not None:
-        #     print(win.robot.curr_move_result)
-        #     win.robot.curr_move_result = None
-        #     win.robot.pick()
+        if len(win.rocks) == 0:
+            print("SUCCESS!")
+            print("Time taken: %.3fs" % (time.perf_counter() - t))
+            sys.exit(0)
+
         elapsed = time.perf_counter() - t
         if elapsed < frametime:
             time.sleep(frametime - elapsed)

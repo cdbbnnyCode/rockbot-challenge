@@ -1,0 +1,20 @@
+CHALLENGE RULES:
+1. You may create and modify any files within the 'rockbot/' folder or in
+sub-folders of the 'rockbot/' folder.
+2. You may NOT create or modify any files in this project that are outside
+the 'rockbot/' folder. However, these files may be updated by changes to the
+upstream Git repository.
+3. Use of tools or libraries to access or modify the game's internal state
+is NOT ALLOWED.
+4. The program may NOT run external programs (i.e. via os.system() or
+subprocess.Popen()).
+5. External Python libraries are allowed, with the following restrictions:
+  5.a. They must follow the above rules.
+  5.b. They must be publicly available, or must be made publicly available
+  by you. If this is not possible (i.e. due to legal reasons), that
+  library is NOT ALLOWED.
+  5.c. You must make a list of which external libraries your program uses,
+  along with how to retrieve them from the internet (or with Pip). This
+  list must be in plain, human-readable text and should be placed in
+  this folder. If a library has automatically-installed dependencies, these
+  dependencies do not need to be listed.
